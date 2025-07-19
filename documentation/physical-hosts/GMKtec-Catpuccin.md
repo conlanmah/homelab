@@ -1,12 +1,13 @@
+# General
 
-| OS      | hostname  | domain    | DNS       |
-| ------- | --------- | --------- | --------- |
-| Proxmox | catpuccin | home.arpa | 127.0.0.1 |
+| OS      | hostname  | domain    | DNS          |
+| ------- | --------- | --------- | ------------ |
+| Proxmox | catpuccin | home.arpa | 192.168.50.1 |
 # Interfaces
 
-| Interface | IP               | Purpose | Gateway       |
-| --------- | ---------------- | ------- | ------------- |
-| enp1s0    | 192.168.100.2/24 |         | 192.168.100.1 |
+| Interface | IP               | Purpose    | Gateway        |
+| --------- | ---------------- | ---------- | -------------- |
+| enp1s0    | 192.168.100.1/24 | Management | 192.168.100.60 |
 # Specs
 
 | Model          | CPU  | RAM       |
