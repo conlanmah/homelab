@@ -56,7 +56,7 @@
       ];
     };
   };
-
+}
 #################### Notes
 # On the host, requires 
 # boot.binfmt.emulatedSystems = ["aarch64-linux"];
