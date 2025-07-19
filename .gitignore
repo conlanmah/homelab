@@ -1,0 +1,4 @@
+.obsidian
+.*
+!.gitignore
+.img
