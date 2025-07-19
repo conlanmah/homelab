@@ -64,3 +64,4 @@
 # 
 # Command to build:
 # nix build .#nixosConfigurations.rpi.config.system.build.sdImage
+
