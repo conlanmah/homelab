@@ -10,6 +10,6 @@ Ports, Dell logo right side up
 T: Trunk Port
 A: Access Port
 
-| 10A |     |     | 20A | 20A | 20A | 20A | 20A |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-|     |     |     |     | 30A | 30A | 30A | 30A |
+| 10A |     |     | 20A | 20A | 20A | 20A | 20A | SFP Port Unused |
+| --- | --- | --- | --- | --- | --- | --- | --- | --------------- |
+|     |     |     |     | 30A | 30A | 30A | 30A | SFP Port Unused |
