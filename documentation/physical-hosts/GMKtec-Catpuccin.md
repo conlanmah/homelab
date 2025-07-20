@@ -1,5 +1,7 @@
 # General
 
+[[NucBoxG2Plus_Bios-Settings]]
+
 | OS      | hostname  | domain    | DNS          |
 | ------- | --------- | --------- | ------------ |
 | Proxmox | catpuccin | home.arpa | 192.168.50.1 |
