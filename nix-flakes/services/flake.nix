@@ -34,7 +34,6 @@
           system = getSystem name; # could be simplified with a let statement
           modules = [
             ./hosts/${name}/configuration.nix
-            ./common/default.nix
           ];
           specialArgs = { system = getSystem name;};
         };
