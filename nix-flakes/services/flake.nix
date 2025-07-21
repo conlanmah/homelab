@@ -3,16 +3,16 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    flake-utils.url = "github:numtide/flake-utils";
+    # flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = {
     self,
     nixpkgs,
-    flake-utils,
+    # flake-utils,
     ...
   }:
-    flake-utils.lib.eachDefaultSystem (system: let
+    let
       hostsDir = ./hosts;
 
       # Create list of directories in ./hosts that contains a configuration.nix
@@ -48,10 +48,5 @@
     in {
       inherit nixosConfigurations;
 
-      packages.default =
-        # fallback: default to the first host if one exists
-        if nixosConfigurations != {}
-        then (builtins.head (builtins.attrValues nixosConfigurations)).config.system.build.toplevel
-        else throw "No valid hosts found in ./hosts/";
-    });
+    };
 }
