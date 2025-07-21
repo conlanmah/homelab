@@ -24,15 +24,18 @@
           && builtins.readDir hostsDir.${name} == "directory"
       ) (builtins.attrNames (builtins.readDir hostsDir));
 
+      getSystem = name:
+        builtins.readFile (./hosts/${name}/system.nix);
+
       # Create a function that makes nix configurations from 
       mkHost = name:
         nixpkgs.lib.nixosSystem {
-          inherit system;
+          system = getSystem name; # could be simplified with a let statement
           modules = [
             ./hosts/${name}/configuration.nix
             ./common/default.nix
           ];
-          specialArgs = {inherit system;};
+          specialArgs = { system = getSystem name;};
         };
 
       nixosConfigurations = builtins.listToAttrs (
