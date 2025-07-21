@@ -16,13 +16,14 @@
       hostsDir = ./hosts;
 
       # Create list of directories in ./hosts that contains a configuration.nix
-      hostDirs = builtins.filter (
-        name: let
-          path = "${toString hostsDir}/${name}";
+      hostDirs =
+        let
+          entries = builtins.readDir hostsDir;
         in
-          builtins.pathExists "${path}/configuration.nix"
-          && builtins.readDir hostsDir.${name} == "directory"
-      ) (builtins.attrNames (builtins.readDir hostsDir));
+          builtins.filter (name:
+            entries.${name} == "directory"
+            && builtins.pathExists (hostsDir + "/${name}/configuration.nix")
+          ) (builtins.attrNames entries);
 
       getSystem = name:
         builtins.readFile (./hosts/${name}/system.nix);
