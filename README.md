@@ -4,6 +4,9 @@ A Proxmox and NixOS based homelab
 # TODO
 
 - [ ] Wireguard on RPi
+	- [ ] Create deploy/builder flake that manages signing
+	- [ ] Update the initial image to trust the signing key
+	- [ ] Wireguard Config
 - [ ] Wrapper for nixos-rebuild that makes targeting remote hosts easy
 - [ ] Figure out secrets management
 - [ ] Research and get/build a UPS
@@ -12,6 +15,7 @@ A Proxmox and NixOS based homelab
 
 Large Steps:
 - [ ] Immich
+- [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
 - [ ] DNS or DDNS
 - [ ] Reverse Proxy
