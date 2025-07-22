@@ -32,6 +32,10 @@
     ];
   };
 
+  environment.systemPackages = with pkgs; [
+    gotop
+  ];
+
   nix.settings.trusted-users = [ "root" "conlan" ];
 
   # Enable the OpenSSH daemon.
