@@ -28,6 +28,9 @@
               password = "changethis";
             };
 
+            # Allows remote builds
+            nix.settings.trusted-users = [ "root" "conlan" ];
+
             services.openssh.enable = true;
 
             networking = {
