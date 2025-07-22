@@ -5,6 +5,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  # todo Garbage collection, swap
+
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -28,6 +31,8 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
     ];
   };
+
+  nix.settings.trusted-users = [ "root" "conlan" ];
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
