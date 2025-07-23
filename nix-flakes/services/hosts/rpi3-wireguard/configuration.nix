@@ -94,7 +94,7 @@
         { # ThinkpadT14
           # Feel free to give a meaningful name
           # Public key of the peer (not a file path).
-          publicKey = "bZcPUveBU+fbNa3dFG93eO6peKhvoMkdOjS3NwelyVo=";
+          publicKey = "KlwQOo+I9rzTUbZfkciqsEzCDHXP73EXloROjJlCT0M=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
           allowedIPs = [ "10.100.5.2/32" ];
         }
