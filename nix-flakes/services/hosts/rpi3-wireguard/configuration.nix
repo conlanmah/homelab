@@ -34,6 +34,7 @@
 
   environment.systemPackages = with pkgs; [
     gotop
+    wireguard-tools
   ];
 
   nix.settings.trusted-users = [ "root" "conlan" ];
