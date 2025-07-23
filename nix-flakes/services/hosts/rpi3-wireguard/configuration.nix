@@ -87,7 +87,7 @@
       '';
 
       # Path to the private key file.
-      privateKeyFile = "~/wg-keys/private";
+      privateKeyFile = "/home/conlan/wg-keys/private";
 
       peers = [
         # List of allowed peers.
