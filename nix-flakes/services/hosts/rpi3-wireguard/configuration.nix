@@ -58,7 +58,8 @@
   };
 
 
-  # enable NAT
+  networking.enableIPv4Forwarding = true;
+  # ommitted from the wiki but probably needed for the pi to forward packets
   networking.nat.enable = true;
   networking.nat.externalInterface = "enu1u1u1";
   networking.nat.internalInterfaces = [ "wg0" ];
