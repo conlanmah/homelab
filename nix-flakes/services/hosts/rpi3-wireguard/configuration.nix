@@ -49,7 +49,7 @@
     after = [ "network-online.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.iputils}/bin/ping -c 1 192.168.100.60";
+      ExecStart = "${pkgs.iputils}/bin/ping -c 4 192.168.100.60";
     };
   };
 
@@ -67,8 +67,6 @@
       interface = "enu1u1u1";
     };
   };
-
-  networking.postSetup
 
   networking.nat.enable = true;
   networking.nat.externalInterface = "enu1u1u1";
