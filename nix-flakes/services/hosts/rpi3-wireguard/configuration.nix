@@ -58,8 +58,6 @@
   };
 
 
-  networking.enableIPv4Forwarding = true;
-  # ommitted from the wiki but probably needed for the pi to forward packets
   networking.nat.enable = true;
   networking.nat.externalInterface = "enu1u1u1";
   networking.nat.internalInterfaces = [ "wg0" ];
@@ -78,14 +76,14 @@
 
       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
       # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
-      postSetup = ''
-        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
-      '';
+      # postSetup = ''
+      #   ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
+      # '';
 
       # This undoes the above command
-      postShutdown = ''
-        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
-      '';
+      # postShutdown = ''
+      #   ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
+      # '';
 
       # Path to the private key file.
       privateKeyFile = "/home/conlan/wg-keys/private";
