@@ -54,6 +54,14 @@
     };
   };
 
+  # In case of the above service, 'missing' the network availability
+  # This will reliably trigger and ensure connectivity
+  services.cron.enable = true;
+  services.cron.systemCronJobs = [
+    "0 * * * * conlan ${pkgs.iputils}/bin/ping -c 1 192.168.100.60 > /var/log/ping.log 2>&1"
+    # runs at minute 0 of every hour as root, pings 4 times, logs output
+  ];
+
   networking = {
     hostName = "rpi3-wireguard";
     networkmanager.enable = true;
