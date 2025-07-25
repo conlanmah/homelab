@@ -21,3 +21,11 @@
 | HDD  | 500GB | RAID1     |
 | HDD  | 500GB | RAID1     |
 | HDD  | 500GB | Hot Spare |
+
+
+| # Opened | Model | SMART  | Conveyance Self-test | Short Self-test | Extended selt-test |
+| -------- | ----- | ------ | -------------------- | --------------- | ------------------ |
+| 1        | Same  | Passed | passed               | passed          |                    |
+| 2        | same  | Passed | passed               | passed          |                    |
+| 3        | same  | Passed | passed               | passed          | passed             |
+| 4        | same  | Passed | passed               | passed          | passed             |

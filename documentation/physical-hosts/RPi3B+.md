@@ -1,9 +1,9 @@
 
 # General
 
-| OS    | hostname | domain | DNS          |
-| ----- | -------- | ------ | ------------ |
-| NixOS | dracula  |        | 192.168.50.1 |
+| OS    | hostname       | domain | DNS          |
+| ----- | -------------- | ------ | ------------ |
+| NixOS | rpi3-wireguard |        | 192.168.50.1 |
 # Interfaces
 
 | Interface | IP                 | Purpose | Gateway        |
@@ -33,4 +33,7 @@ To my laptop's Nix config so that it could correctly emulate the aarch64 archite
 This resulted in an `.img` file which I could flash to the sd card using `dd`. 
 https://wiki.nixos.org/wiki/NixOS_on_ARM/Installation
 
-# 
+## Remote building
+
+Go to flake and run:
+`nixos-rebuild switch --flake .#rpi3-wireguard --target-host conlan@192.168.100.101 --use-remote-sudo`
