@@ -43,7 +43,10 @@
   services.openssh.enable = true;
 
   # Requires to ensure accessibility after reboot
-  systemd.network.wait-online.enable = true;
+  systemd.network.wait-online = {
+    enable = true;
+    ignoredInterfaces = ["wg0"];
+  };
   systemd.services.populate-arp = {
     description = "Ping device to populate ARP table";
     wantedBy = [ "multi-user.target" ];
