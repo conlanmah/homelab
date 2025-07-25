@@ -43,15 +43,15 @@
   services.openssh.enable = true;
 
   # Requires to ensure accessibility after reboot
-  systemd.services.populate-arp = {
-    description = "Ping device to populate ARP table";
-    wantedBy = [ "network-online.target" ];
-    after = [ "network-online.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.iputils}/bin/ping -c 4 192.168.100.60";
-    };
-  };
+  # systemd.services.populate-arp = {
+  #   description = "Ping device to populate ARP table";
+  #   wantedBy = [ "network-online.target" ];
+  #   after = [ "network-online.target" ];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     ExecStart = "${pkgs.iputils}/bin/ping -c 4 192.168.100.60";
+  #   };
+  # };
 
   networking = {
     hostName = "rpi3-wireguard";
