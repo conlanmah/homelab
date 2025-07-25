@@ -46,7 +46,7 @@
   systemd.services.ping-for-arp = {
     description = "Ping device to populate ARP table";
     wantedBy = [ "multi-user.target" ];
-    after = [ "NetworkManager-wait-online.service" ];
+    after = [ "multi-user.target" ];
     requires = [ "NetworkManager-wait-online.service" ];
     serviceConfig = {
       Type = "oneshot";
