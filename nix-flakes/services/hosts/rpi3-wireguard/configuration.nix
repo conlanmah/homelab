@@ -43,15 +43,11 @@
   services.openssh.enable = true;
 
   # Requires to ensure accessibility after reboot
-  systemd.network.wait-online = {
-    enable = true;
-    ignoredInterfaces = ["wg0"];
-  };
-  systemd.services.populate-arp = {
+  systemd.services.ping-for-arp = {
     description = "Ping device to populate ARP table";
     wantedBy = [ "multi-user.target" ];
-    after = [ "systemd-networkd-wait-online.service" ];
-    requires = [ "systemd-networkd-wait-online.service" ];
+    after = [ "NetworkManager-wait-online.service" ];
+    requires = [ "NetworkManager-wait-online.service" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = "${pkgs.iputils}/bin/ping -c 1 192.168.100.60";
