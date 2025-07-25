@@ -13,6 +13,15 @@
       ./hardware-configuration.nix
     ];
 
+  # optimize store after each rebuild
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;              # Enable automatic GC
+    dates = "weekly";              # When to run it (could also be a specific time like "03:15")
+    options = "--delete-older-than 10d";  # Pass arguments to control what to delete
+  };
+
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
   boot.loader.grub.enable = false;
   # Enables the generation of /boot/extlinux/extlinux.conf
@@ -97,14 +106,14 @@
 
       # This allows the wireguard server to route your traffic to the internet and hence be like a VPN
       # For this to work you have to set the dnsserver IP of your router (or dnsserver of choice) in your clients
-      # postSetup = ''
-      #   ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
-      # '';
+      postSetup = ''
+        ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
+      '';
 
       # This undoes the above command
-      # postShutdown = ''
-      #   ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
-      # '';
+      postShutdown = ''
+        ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.100.5.0/24 -o enu1u1u1 -j MASQUERADE
+      '';
 
       # Path to the private key file.
       privateKeyFile = "/home/conlan/wg-keys/private";
