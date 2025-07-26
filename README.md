@@ -3,13 +3,14 @@ A Proxmox and NixOS based homelab
 
 # TODO
 
-- [ ] Wireguard on RPi
+- [x] Wireguard on RPi
 	- [ ] ~~Create deploy/builder flake that manages signing~~
 	- [ ] ~~Update the initial image to trust the signing key
 	- [x] Remote deploy first configuration
-	- [ ] Wireguard Config
+	- [x] Wireguard Config
+- [ ] Re-plan how to share storage from T330
 - [ ] Wrapper for nixos-rebuild that makes targeting remote hosts easy
-- [ ] Test Harddrives
+- [x] Test Harddrives
 - [ ] Install T330
 - [ ] Figure out secrets management
 - [ ] Research and get/build a UPS
