@@ -91,9 +91,9 @@
   networking.nat.internalInterfaces = [ "wg0" ];
   networking.firewall = {
     allowedUDPPorts = [ 51820 ];
-
-
   };
+
+  networking.nameservers = [192.168.50.1];
 
   networking.wireguard.interfaces = {
     # "wg0" is the network interface name. You can name the interface arbitrarily.
