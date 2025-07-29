@@ -39,10 +39,7 @@
 
   # Set your time zone.
   time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -54,8 +51,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -84,11 +79,14 @@
   services.openssh.enable = true;
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+
+  ################################################################
+  ################ ZFS Settings ##################################
+  ################################################################
+  
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = false;
+  networking.hostId = "f5a224c1"; # Random id for importing zpools to a single system
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
