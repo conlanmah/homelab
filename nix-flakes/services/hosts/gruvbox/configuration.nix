@@ -6,37 +6,32 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    [./hardware-configuration.nix];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "gruvbox"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking = {
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+    hostName = "gruvbox";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+    networkmanager.enable = true;
 
-networking = {
-  interfaces.eno1 = {
-    ipv4.addresses = [{
-      address = "192.168.100.4";
-      prefixLength = 24;
-    }];
+    interfaces.eno1 = {
+      ipv4.addresses = [{
+        address = "192.168.100.4";
+        prefixLength = 24;
+      }];
+    };
+
+    defaultGateway = {
+      address = "192.168.100.60";
+      interface = "eno1";
+    };
+
+    nameservers = ["192.168.50.1" "8.8.8.8"];
   };
-  defaultGateway = {
-    address = "192.168.100.60";
-    interface = "eno1";
-  };
-  nameservers = ["192.168.50.1" "8.8.8.8"];
-};
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -62,7 +57,6 @@ networking = {
     variant = "";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.conlan = {
     isNormalUser = true;
     description = "conlan";
@@ -72,29 +66,20 @@ networking = {
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
     ];
   };
+  
+  nix.settings.trusted-users = [ "root" "conlan" ];
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];

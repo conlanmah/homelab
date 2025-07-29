@@ -1,3 +1,4 @@
+# Build with: `nixos-rebuild switch --flake .#<hostname> --target-host conlan@<ip-addr> --use-remote-sudo`
 {
   description = "Creates configurations for all homelab services";
 
