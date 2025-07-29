@@ -19,8 +19,12 @@
     networkmanager.enable = true;
 
     interfaces.eno1 = {
-      ipv4.addresses = [{
+      eno1.ipv4.addresses = [{
         address = "192.168.100.4";
+        prefixLength = 24;
+      }];
+      eno2.ipv4.addresses = [{
+        address = "192.168.150.4";
         prefixLength = 24;
       }];
     };
