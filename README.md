@@ -8,14 +8,16 @@ A Proxmox and NixOS based homelab
 	- [ ] ~~Update the initial image to trust the signing key
 	- [x] Remote deploy first configuration
 	- [x] Wireguard Config
-- [ ] Re-plan how to share storage from T330
+- [x] Re-plan how to share storage from T330
+- [ ] Build out T330 config, NFS on ZFS
 - [ ] Wrapper for nixos-rebuild that makes targeting remote hosts easy
 - [x] Test Harddrives
-- [ ] Install T330
+- [x] Install T330
 - [ ] Figure out secrets management
 - [ ] Research and get/build a UPS
 	- [ ] Configure nut-client
 - [ ] Reorganize physical devices
+	- [ ] Add cables for second NAT on mini's 
 
 Large Steps:
 - [ ] Immich
@@ -30,4 +32,5 @@ Large Steps:
 - [ ] Uptime Kuma for Reporting
 - [ ] RSS reader
 - [ ] Wallabag for storing articles to read
+- [ ] copyparty for a file server
 

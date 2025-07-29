@@ -2,6 +2,6 @@
 # Port Forwarding
 
 
-| Usage         | Port  |
-| ------------- | ----- |
-| rpi-wireguard | 20000 |
+| Usage         | Internal Port | External Port |
+| ------------- | ------------- | ------------- |
+| rpi-wireguard | 51820         | 51820         |
