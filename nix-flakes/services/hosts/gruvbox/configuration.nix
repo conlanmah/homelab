@@ -36,7 +36,7 @@
 
     nameservers = ["192.168.50.1" "8.8.8.8"];
 
-    firewall.allowedTCPPorts = [ 2049 ];
+    firewall.allowedTCPPorts = [ 111 2049 ];
     # For NFS
   };
 
