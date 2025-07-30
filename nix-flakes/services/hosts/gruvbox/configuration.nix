@@ -35,6 +35,9 @@
     };
 
     nameservers = ["192.168.50.1" "8.8.8.8"];
+
+    firewall.allowedTCPPorts = [ 2049 ];
+    # For NFS
   };
 
   # Set your time zone.
@@ -77,6 +80,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.nfs.server.enable = true;
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -86,7 +90,14 @@
   
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportRoot = false;
+  boot.zfs.extraPools = [ "tank" ];
   networking.hostId = "f5a224c1"; # Random id for importing zpools to a single system
+  services.zfs = {
+    autoScrub.enable = true;
+    trim.enable = true;
+    autoSnapshot.enable = true;
+  };
+
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
