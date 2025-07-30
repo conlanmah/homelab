@@ -26,6 +26,7 @@ Large Steps:
 - [ ] DNS or DDNS
 - [ ] Reverse Proxy
 - [ ] Terraform for Proxmox
+- [ ] LDAP
 - [ ] Paperless NGX
 - [ ] Find My Device
 - [ ] Gafana for dashboard
