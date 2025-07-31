@@ -36,8 +36,11 @@
 
     nameservers = ["192.168.50.1" "8.8.8.8"];
 
-    firewall.allowedTCPPorts = [ 2049 ];
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 2049 ];
     # For NFSv4
+    };
   };
 
   # Set your time zone.
@@ -111,6 +114,10 @@
 
   services.nfs.server = {
     enable = true;
+
+    # lockdPort = 4001;
+    # mountdPort = 4002;
+    # statdPort = 4000;
 
     # TEMP CONFIG
     # NARROW TO 150.0/24 ONCE DONE 
