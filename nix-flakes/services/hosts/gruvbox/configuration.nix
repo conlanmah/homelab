@@ -102,7 +102,7 @@
   ################ NFS Settings ###################################
   #################################################################
 
-  filesystmes."/export/vdisks" = {
+  filesystems."/export/vdisks" = {
     device = "/tank/vdisks";
     options = [ "bind" ];
   }; 
