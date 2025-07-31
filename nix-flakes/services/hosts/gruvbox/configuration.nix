@@ -123,8 +123,8 @@
     # TEMP CONFIG
     # NARROW TO 150.0/24 ONCE DONE 
     exports = ''
-      /export         192.168.0.0/16(rw,fsid=0,no_subtree_check)
-      /export/vdisks  192.168.0.0/16(rw,nohide,insecure,no_subtree_check)
+      /export         192.168.150.0/24(rw,fsid=0,no_subtree_check)
+      /export/vdisks  192.168.150.0/24(rw,nohide,insecure,no_subtree_check)
     '';
   };
 
