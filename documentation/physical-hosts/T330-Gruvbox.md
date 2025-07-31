@@ -80,3 +80,10 @@ sudo zfs set atime=off tank
 # Reservation to ensure pool performance
 sudo zfs create -o refreservation=3T -o mountpoint=none tank/reserved
 ```
+
+## Datasets
+
+
+| Name   | Purpose               | NFS?                                                 |
+| ------ | --------------------- | ---------------------------------------------------- |
+| vdisks | Proxmox Virtual Disks | ro=192.168.150.0/24,all_squash,anonuid=70,anongid=70 |

@@ -16,8 +16,8 @@ A Proxmox and NixOS based homelab
 - [ ] Figure out secrets management
 - [ ] Research and get/build a UPS
 	- [ ] Configure nut-client
-- [ ] Reorganize physical devices
-	- [ ] Add cables for second NAT on mini's 
+- [x] Reorganize physical devices
+	- [x] Add cables for second NAT on mini's 
 
 Large Steps:
 - [ ] Immich
