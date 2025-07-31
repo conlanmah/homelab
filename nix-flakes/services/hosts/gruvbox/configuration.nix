@@ -38,8 +38,9 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 2049 ];
-    # For NFSv4
+      # for NFSv3; view with `rpcinfo -p`
+      allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 ];
+      allowedUDPPorts = [ 111 2049 4000 4001  4002 20048 ];
     };
   };
 
@@ -115,9 +116,9 @@
   services.nfs.server = {
     enable = true;
 
-    # lockdPort = 4001;
-    # mountdPort = 4002;
-    # statdPort = 4000;
+    lockdPort = 4001;
+    mountdPort = 4002;
+    statdPort = 4000;
 
     # TEMP CONFIG
     # NARROW TO 150.0/24 ONCE DONE 
