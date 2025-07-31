@@ -36,8 +36,8 @@
 
     nameservers = ["192.168.50.1" "8.8.8.8"];
 
-    firewall.allowedTCPPorts = [ 111 2049 ];
-    # For NFS
+    firewall.allowedTCPPorts = [ 2049 ];
+    # For NFSv4
   };
 
   # Set your time zone.
@@ -80,7 +80,6 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.nfs.server.enable = true;
   
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
@@ -98,6 +97,28 @@
     autoSnapshot.enable = true;
   };
 
+
+  #################################################################
+  ################ NFS Settings ###################################
+  #################################################################
+
+  filesystmes."/export/vdisks" = {
+    device = "/tank/vdisks";
+    options = [ "bind" ];
+  }; 
+  # Could easily make this a function, also is not nessesarily required
+  # But is in general good practice and separates ZFS from NFS a bit
+
+  services.nfs.server = {
+    enable = true;
+
+    # TEMP CONFIG
+    # NARROW TO 150.0/24 ONCE DONE 
+    exports = ''
+      /export         192.168.0.0/16(rw,fsid=0,no_subtree_check)
+      /export/vdisks  192.168.0.0/16(rw,nohide,insecure,no_subtree_check)
+    '';
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
