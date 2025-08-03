@@ -10,14 +10,17 @@ A Proxmox and NixOS based homelab
 	- [x] Wireguard Config
 - [x] Re-plan how to share storage from T330
 - [ ] Build out T330 config, NFS on ZFS
+	- [ ] Add Linux ISO's dataset
 - [ ] Wrapper for nixos-rebuild that makes targeting remote hosts easy
 - [x] Test Harddrives
 - [x] Install T330
 - [ ] Figure out secrets management
+- [x] Add Proxmox Nodes to cluster
 - [ ] Research and get/build a UPS
 	- [ ] Configure nut-client
 - [x] Reorganize physical devices
 	- [x] Add cables for second NAT on mini's 
+- [ ] Update Diagams
 
 Large Steps:
 - [ ] Immich
@@ -34,4 +37,5 @@ Large Steps:
 - [ ] RSS reader
 - [ ] Wallabag for storing articles to read
 - [ ] copyparty for a file server
+- [ ] NTP?
 
