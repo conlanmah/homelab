@@ -110,6 +110,11 @@
     device = "/tank/vdisks";
     options = [ "bind" ];
   }; 
+  fileSystems."/export/isos" = {
+    device = "/tank/isos";
+    options = [ "bind" ];
+  }; 
+
   # Could easily make this a function, also is not nessesarily required
   # But is in general good practice and separates ZFS from NFS a bit
 
@@ -124,6 +129,7 @@
     # NARROW TO 150.0/24 ONCE DONE 
     exports = ''
       /export/vdisks  192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
+      /export/isos    192.168.150.0/24(ro,sync,no_root_squash,no_subtree_check)
     '';
   };
 
