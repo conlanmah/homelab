@@ -84,6 +84,16 @@ sudo zfs create -o refreservation=3T -o mountpoint=none tank/reserved
 ## Datasets
 
 
-| Name   | Purpose               | NFS?                                                 |
-| ------ | --------------------- | ---------------------------------------------------- |
-| vdisks | Proxmox Virtual Disks | ro=192.168.150.0/24,all_squash,anonuid=70,anongid=70 |
+| Name   | Purpose               | NFS                                                       |
+| ------ | --------------------- | --------------------------------------------------------- |
+| vdisks | Proxmox Virtual Disks | 192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check) |
+| isos   | Linux ISOs            | 192.168.150.0/24(ro,sync,no_root_squash,no_subtree_check) |
+
+no_root_squash is slightly insecure, but not a super large issue as the NFS shares are fairly inaccessible.
+
+Commands for `isos` because proxmox expects a file structure if it can't write.
+```bash
+sudo mkdir -p /tank/isos/template/cache
+sudo chown -R root:root /tank/isos/template
+sudo chmod -R 755 /tank/isos/template
+```

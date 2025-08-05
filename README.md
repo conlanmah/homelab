@@ -38,4 +38,5 @@ Large Steps:
 - [ ] Wallabag for storing articles to read
 - [ ] copyparty for a file server
 - [ ] NTP?
+- [ ] Kerberos
 
