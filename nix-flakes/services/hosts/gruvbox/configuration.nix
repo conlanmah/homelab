@@ -129,7 +129,7 @@
     # NARROW TO 150.0/24 ONCE DONE 
     exports = ''
       /export/vdisks  192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
-      /export/isos    192.168.150.0/24(ro,sync,no_root_squash,no_subtree_check)
+      /export/isos    192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
     '';
   };
 
