@@ -8,13 +8,10 @@
     manageNetwork = false;
     privileged = true;
   };
-
   nixpkgs.hostPlatform = "x86_64-linux";
 
-  services.openssh = {
-    enable = true;
-    # openFirewall = true;
-  };
+  services.openssh = {enable = true;};
+
   networking = {
     hostName = "immich-mars";
     interfaces = {
@@ -31,6 +28,7 @@
     nameservers = ["192.168.50.1" "8.8.8.8"];
     firewall.enable = true;
   };
+
   users.users.conlan = {
     isNormalUser = true;
     description = "conlan";
@@ -42,8 +40,15 @@
   };
   
   nix.settings.trusted-users = [ "root" "conlan" ];
-
   nixpkgs.config.allowUnfree = true;
 
+  ###############################################################
+  ################################## Immich Config ##############
+  ###############################################################
+
+  services.immich.enable = true;
+  services.immich.port = 2283;
+
+  ###### NEVER CHANGE THIS
   system.stateVersion = "25.05";
 }
