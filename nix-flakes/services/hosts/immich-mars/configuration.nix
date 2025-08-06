@@ -38,6 +38,10 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
     ];
   };
+  services = { # Disable unnessesary features
+    bluetooth.enable = false;
+    pulseaudio.enable = false;
+  };
   
   nix.settings.trusted-users = [ "root" "conlan" ];
 
