@@ -94,6 +94,7 @@ no_root_squash is slightly insecure, but not a super large issue as the NFS shar
 Commands for `isos` because proxmox expects a file structure if it can't write.
 ```bash
 sudo mkdir -p /tank/isos/template/cache
+sudo mkdir -p /tank/isos/template/iso
 sudo chown -R root:root /tank/isos/template
 sudo chmod -R 755 /tank/isos/template
 ```
