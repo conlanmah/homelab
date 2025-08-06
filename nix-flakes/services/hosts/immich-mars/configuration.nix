@@ -9,7 +9,7 @@
     privileged = true;
   };
 
-  disabledModules = [ "services/hardware/bluetooth.nix" ];
+  nixpkgs.hostPlatform = "x86_64-linux";
 
   services.openssh = {
     enable = true;
