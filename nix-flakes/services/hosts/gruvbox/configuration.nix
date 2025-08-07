@@ -26,9 +26,6 @@
       eno2.ipv4.addresses = [{
         address = "192.168.150.4";
         prefixLength = 24;
-        # for NFSv3; view with `rpcinfo -p`
-        allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 ];
-        allowedUDPPorts = [ 111 2049 4000 4001  4002 20048 ];
       }];
     };
 
@@ -41,7 +38,11 @@
 
     firewall = {
       enable = true;
-
+      interface."eno2" = {
+        # for NFSv3; view with `rpcinfo -p`
+        allowedTCPPorts = [ 111  2049 4000 4001 4002 20048 ];
+        allowedUDPPorts = [ 111 2049 4000 4001  4002 20048 ];
+      };
     };
   };
 
