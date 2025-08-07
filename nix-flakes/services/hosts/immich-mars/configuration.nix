@@ -33,7 +33,7 @@
     # nftables.enable = false;
     firewall = {
       trustedInterfaces = [ "lo" ]; # nessesary because it's a container
-      enable = true;
+      enable = false;
       allowedTCPPorts = [ 2283 ];
     };
   };
