@@ -19,6 +19,10 @@
         address = "192.168.100.102";
         prefixLength = 24;
       }];
+      eth1.ipv4.addresses = [{
+        address = "192.168.150.102";
+        prefixLength = 24;
+      }];
     };
     defaultGateway = {
       address = "192.168.100.60";
