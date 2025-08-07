@@ -24,8 +24,9 @@
       address = "192.168.100.60";
       interface = "eth0";
     };
-
     nameservers = ["192.168.50.1" "8.8.8.8"];
+
+    nftables.enable = true;
     firewall = {
       enable = true;
       allowedTCPPorts = [ 2283 ];
