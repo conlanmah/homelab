@@ -5,7 +5,7 @@
   imports = [ (modulesPath + "/virtualisation/proxmox-lxc.nix") ];
   nix.settings = { sandbox = false; };  
   proxmoxLXC = {
-    manageNetwork = false;
+    manageNetwork = true;
     privileged = true;
   };
   nixpkgs.hostPlatform = "x86_64-linux";
