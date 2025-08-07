@@ -27,6 +27,7 @@
 
     nameservers = ["192.168.50.1" "8.8.8.8"];
     firewall.enable = true;
+    firewall.allowedTCPPorts = [ 2283 ];
   };
 
   users.users.conlan = {
