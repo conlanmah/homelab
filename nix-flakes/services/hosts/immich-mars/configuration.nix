@@ -65,7 +65,7 @@
   };
 
   fileSystems."/mnt/immich-mars" = {
-    device = "192.168.150.4:/export/immich-mars"
+    device = "192.168.150.4:/export/immich-mars";
     fsType = "nfs";
   };
   boot.supportedFilesystems = ["nfs"];
