@@ -61,7 +61,14 @@
     port = 2283;
     host = "0.0.0.0";
     openFirewall = true;
-  }; 
+    mediaLocation = "/mnt/immich-mars"
+  };
+
+  fileSystems."/mnt/immich-mars" = {
+    device = "192.168.150.4:/export/immich-mars"
+    fsType = "nfs";
+  };
+  boot.supportedFilesystems = ["nfs"];
 
   ###### NEVER CHANGE THIS
   system.stateVersion = "25.05";
