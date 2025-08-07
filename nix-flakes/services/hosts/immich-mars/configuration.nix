@@ -50,6 +50,7 @@
   
   nix.settings.trusted-users = [ "root" "conlan" ];
   nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   ###############################################################
   ################################## Immich Config ##############
