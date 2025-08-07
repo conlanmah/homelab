@@ -59,7 +59,7 @@
   services.immich = {
     enable = true;
     port = 2283;
-    host = "0.0.0.0";
+    host = "192.168.100.102";
     openFirewall = true;
     mediaLocation = "/mnt/immich-mars";
   };
