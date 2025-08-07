@@ -61,7 +61,7 @@
     port = 2283;
     host = "0.0.0.0";
     openFirewall = true;
-    mediaLocation = "/mnt/immich-mars"
+    mediaLocation = "/mnt/immich-mars";
   };
 
   fileSystems."/mnt/immich-mars" = {
