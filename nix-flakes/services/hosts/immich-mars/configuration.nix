@@ -26,8 +26,8 @@
     };
     nameservers = ["192.168.50.1" "8.8.8.8"];
 
-    nftables.enable = true;
     firewall = {
+      trustedInterfaces = [ "lo" ]; # nessesary because it's a container
       enable = true;
       allowedTCPPorts = [ 2283 ];
     };
