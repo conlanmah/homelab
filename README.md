@@ -9,8 +9,8 @@ A Proxmox and NixOS based homelab
 	- [x] Remote deploy first configuration
 	- [x] Wireguard Config
 - [x] Re-plan how to share storage from T330
-- [ ] Build out T330 config, NFS on ZFS
-	- [ ] Add Linux ISO's dataset
+- [x] Build out T330 config, NFS on ZFS
+	- [x] Add Linux ISO's dataset
 - [ ] Wrapper for nixos-rebuild that makes targeting remote hosts easy
 - [x] Test Harddrives
 - [x] Install T330
@@ -20,10 +20,14 @@ A Proxmox and NixOS based homelab
 	- [ ] Configure nut-client
 - [x] Reorganize physical devices
 	- [x] Add cables for second NAT on mini's 
-- [ ] Update Diagams
+- [ ] Update Diagrams
+- [ ] Immich
+	- [ ] Create nfs share
+		- [ ] ensure zfs auto snapshot
+	- [ ] Fine tune settings
+	- [ ] determine how to share with family
 
 Large Steps:
-- [ ] Immich
 - [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
 - [ ] DNS or DDNS

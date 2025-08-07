@@ -116,6 +116,10 @@
     device = "/tank/isos";
     options = [ "bind" ];
   }; 
+  fileSystems."/export/immich-mars" = {
+    device = "/tank/immich-mars";
+    options = [ "bind" ];
+  }; 
 
   # Could easily make this a function, also is not nessesarily required
   # But is in general good practice and separates ZFS from NFS a bit
@@ -130,8 +134,9 @@
     # TEMP CONFIG
     # NARROW TO 150.0/24 ONCE DONE 
     exports = ''
-      /export/vdisks  192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
-      /export/isos    192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
+      /export/vdisks        192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
+      /export/isos          192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
+      /export/immich-mars   192.168.150.102(rw,sync,no_root_squash,no_subtree_check)
     '';
   };
 
