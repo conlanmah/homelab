@@ -70,6 +70,12 @@
   };
   boot.supportedFilesystems = ["nfs"];
 
+  # Ensures that immich requires the mounted storage to be available
+  systemd.services.immich-server = {
+    unitConfig.RequiresMountsFor = [ "/mnt/immich-mars" ];
+  };
+
+
   ###### NEVER CHANGE THIS
   system.stateVersion = "25.05";
 }
