@@ -22,16 +22,20 @@ A Proxmox and NixOS based homelab
 	- [x] Add cables for second NAT on mini's 
 - [ ] Update Diagrams
 - [ ] Immich
-	- [ ] Create nfs share
-		- [ ] ensure zfs auto snapshot
+	- [x] Create nfs share
+		- [x] ensure zfs auto snapshot
 	- [ ] Fine tune settings
-	- [ ] determine how to share with family
+- [ ] Set up everforest host
+	- [ ] Research how Proxmox backup works
 
 Large Steps:
 - [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
 - [ ] DNS or DDNS
-- [ ] Reverse Proxy
+- [ ] Extended Internet Access
+	- [ ] Reverse Proxy or
+	- [ ] DMZ or
+	- [ ] headscale VPS
 - [ ] Terraform for Proxmox
 - [ ] LDAP
 - [ ] Paperless NGX
