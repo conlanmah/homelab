@@ -37,20 +37,35 @@
       allowedTCPPorts = [ 2283 ];
     };
   };
-
-  users.users.conlan = {
-    isNormalUser = true;
-    description = "conlan";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
-    ];
-  };
   
   nix.settings.trusted-users = [ "root" "conlan" ];
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  #################################################################
+  ############################### USERS ###########################
+  #################################################################
+
+    users.users = {
+    conlan = {
+      isNormalUser = true;
+      description = "conlan";
+      extraGroups = [ "networkmanager" "wheel" ];
+      packages = with pkgs; [];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
+      ];
+    };
+    immich = {
+      isSystemUser = true;
+      uid = 104;
+      group = "immich";
+    };
+  };
+
+  users.groups = {
+    immich = {gid = 104;};
+  };
 
   ###############################################################
   ################################## Immich Config ##############
@@ -62,6 +77,7 @@
     host = "0.0.0.0";
     openFirewall = true;
     mediaLocation = "/mnt/immich-mars";
+    user = "immich";
   };
 
   fileSystems."/mnt/immich-mars" = {
