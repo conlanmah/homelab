@@ -46,7 +46,7 @@
   ############################### USERS ###########################
   #################################################################
 
-    users.mutableUsers = false;
+    # users.mutableUsers = false;
     users.users = {
     conlan = {
       isNormalUser = true;
@@ -57,15 +57,15 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
       ];
     };
-    immich = {
-      isSystemUser = true;
-      uid = 104;
-      group = "immich";
-    };
+    # immich = {
+    #   isSystemUser = true;
+    #   uid = 104;
+    #   group = "immich";
+    # };
   };
 
   users.groups = {
-    immich = {gid = 104;};
+    # immich = {gid = 104;};
   };
 
   ###############################################################
