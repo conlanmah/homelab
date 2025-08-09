@@ -99,7 +99,7 @@
       isSystemUser = true;
       uid = 104;
       group = "immich";
-    }
+    };
   };
 
   users.groups = {

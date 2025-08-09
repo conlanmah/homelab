@@ -25,8 +25,8 @@ A Proxmox and NixOS based homelab
 	- [x] Create nfs share
 		- [x] ensure zfs auto snapshot
 	- [ ] Fine tune settings
-- [ ] Set up everforest host
-	- [ ] Research how Proxmox backup works
+- [x] Set up everforest host
+	- [x] Research how Proxmox backup works
 
 Large Steps:
 - [ ] backup wireguard instance
@@ -47,4 +47,5 @@ Large Steps:
 - [ ] copyparty for a file server
 - [ ] NTP?
 - [ ] Kerberos
+- [ ] Redo EVERYTHING once the proxmox-nixos project matures and stabilizes
 

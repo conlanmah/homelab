@@ -5,9 +5,10 @@
 | Proxmox | nord     | home.arpa | 192.168.50.1 |
 # Interfaces
 
-| Interface | IP               | Purpose    | Gateway        |
-| --------- | ---------------- | ---------- | -------------- |
-| enp1s0    | 192.168.100.3/24 | Management | 192.168.100.60 |
+| Interface | IP               | Purpose            | Gateway        |
+| --------- | ---------------- | ------------------ | -------------- |
+| enp1s0    | 192.168.100.3/24 | Management and VMs | 192.168.100.60 |
+| enp3s0    | 192.168.150.3/24 | Storage            | NA             |
 # Specs
 
 | Model          | CPU  | RAM       |
