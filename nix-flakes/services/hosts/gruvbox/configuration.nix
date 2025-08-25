@@ -127,7 +127,7 @@
 
   fileSystems."/export/vdisks" = {
     device = "/tank/vdisks";
-    options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service"];
+    options = [ "bind" ];
   }; 
   fileSystems."/export/isos" = {
     device = "/tank/isos";
@@ -135,7 +135,7 @@
   }; 
   fileSystems."/export/immich-mars" = {
     device = "/tank/immich-mars";
-    options = [ "bind" ];
+    options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service" ];
   }; 
 
   # Could easily make this a function, also is not nessesarily required
