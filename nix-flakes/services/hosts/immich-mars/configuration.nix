@@ -78,7 +78,6 @@
     host = "0.0.0.0";
     openFirewall = true;
     mediaLocation = "/mnt/immich-mars";
-    user = "immich";
   };
 
   fileSystems."/mnt/immich-mars" = {
