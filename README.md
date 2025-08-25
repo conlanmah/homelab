@@ -20,7 +20,7 @@ A Proxmox and NixOS based homelab
 	- [ ] Configure nut-client
 - [x] Reorganize physical devices
 	- [x] Add cables for second NAT on mini's 
-- [ ] Update Diagrams
+- [x] Update Diagrams
 - [ ] Immich
 	- [x] Create nfs share
 		- [x] ensure zfs auto snapshot
