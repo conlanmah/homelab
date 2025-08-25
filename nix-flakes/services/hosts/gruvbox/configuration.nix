@@ -127,7 +127,7 @@
 
   fileSystems."/export/vdisks" = {
     device = "/tank/vdisks";
-    options = [ "bind" ];
+    options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service"];
   }; 
   fileSystems."/export/isos" = {
     device = "/tank/isos";
