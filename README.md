@@ -13,7 +13,6 @@ A Proxmox and NixOS based homelab
 	- [x] Add Linux ISO's dataset
 - [x] Test Harddrives
 - [x] Install T330
-- [ ] Figure out secrets management
 - [x] Add Proxmox Nodes to cluster
 - [ ] Research and get/build a UPS
 	- [ ] Configure nut-client
@@ -30,6 +29,10 @@ A Proxmox and NixOS based homelab
 	- [ ] nixos-rebuild wrapper, use nh probably
 	- [ ] direnv prolly
 	- [ ] determine if terraform integration is better now for addressing
+	- [ ] secrets management
+	- [ ] dedicated builder host?
+		- [ ] where to put the base nix image?
+- [ ] NFS binding on gruvbox
 
 Large Steps:
 - [ ] backup wireguard instance
@@ -40,7 +43,10 @@ Large Steps:
 	- [ ] DMZ or
 	- [ ] headscale VPS
 - [ ] Terraform for Proxmox
-- [ ] LDAP
+- [ ] IP fabric?
+- [ ] Directory Services/SSO
+	- [ ] Kerberos?
+	- [ ] LDAP?
 - [ ] Paperless NGX
 - [ ] Find My Device
 - [ ] Gafana for dashboard
@@ -49,6 +55,6 @@ Large Steps:
 - [ ] Wallabag for storing articles to read
 - [ ] copyparty for a file server
 - [ ] NTP?
-- [ ] Kerberos
+- [ ] Music hosting recommended by O
 - [ ] Redo EVERYTHING once the proxmox-nixos project matures and stabilizes
 
