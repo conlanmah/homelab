@@ -11,7 +11,6 @@ A Proxmox and NixOS based homelab
 - [x] Re-plan how to share storage from T330
 - [x] Build out T330 config, NFS on ZFS
 	- [x] Add Linux ISO's dataset
-- [ ] Wrapper for nixos-rebuild that makes targeting remote hosts easy
 - [x] Test Harddrives
 - [x] Install T330
 - [ ] Figure out secrets management
@@ -27,6 +26,10 @@ A Proxmox and NixOS based homelab
 	- [ ] Fine tune settings
 - [x] Set up everforest host
 	- [x] Research how Proxmox backup works
+- [ ] Deployer flake
+	- [ ] nixos-rebuild wrapper, use nh probably
+	- [ ] direnv prolly
+	- [ ] determine if terraform integration is better now for addressing
 
 Large Steps:
 - [ ] backup wireguard instance
