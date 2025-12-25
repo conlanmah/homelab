@@ -16,7 +16,7 @@
     hostName = "immich-mars";
     interfaces = {
       eth0.ipv4.addresses = [{
-        address = "192.168.100.102";
+        address = "192.168.200.102";
         prefixLength = 24;
       }];
       eth1.ipv4.addresses = [{
@@ -25,7 +25,7 @@
       }];
     };
     defaultGateway = {
-      address = "192.168.100.60";
+      address = "192.168.200.60";
       interface = "eth0";
     };
     nameservers = ["192.168.50.1" "8.8.8.8"];
