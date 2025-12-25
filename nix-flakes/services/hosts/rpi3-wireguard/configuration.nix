@@ -59,7 +59,7 @@
     requires = [ "NetworkManager-wait-online.service" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.iputils}/bin/ping -c 1 192.168.100.60";
+      ExecStart = "${pkgs.iputils}/bin/ping -c 1 192.168.200.60";
     };
   };
 
@@ -67,7 +67,7 @@
   # This will reliably trigger and ensure connectivity
   services.cron.enable = true;
   services.cron.systemCronJobs = [
-    "0 * * * * conlan ${pkgs.iputils}/bin/ping -c 1 192.168.100.60 > /var/log/ping.log 2>&1"
+    "0 * * * * conlan ${pkgs.iputils}/bin/ping -c 1 192.168.200.60 > /var/log/ping.log 2>&1"
     # runs at minute 0 of every hour as root, pings 4 times, logs output
   ];
 
@@ -76,12 +76,12 @@
     networkmanager.enable = true;
     interfaces.enu1u1u1 = {
       ipv4.addresses = [{
-        address = "192.168.100.101";
+        address = "192.168.200.101";
         prefixLength = 24;
       }];
     };
     defaultGateway = {
-      address = "192.168.100.60";
+      address = "192.168.200.60";
       interface = "enu1u1u1";
     };
   };
@@ -125,7 +125,8 @@
           # Public key of the peer (not a file path).
           publicKey = "KlwQOo+I9rzTUbZfkciqsEzCDHXP73EXloROjJlCT0M=";
           # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-          allowedIPs = [ "10.100.5.2/32" ];
+          # /31 so my phone and laptop can access
+          allowedIPs = [ "10.100.5.2/31" ];
         }
       ];
     };
