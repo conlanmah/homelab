@@ -20,7 +20,7 @@
 
     interfaces = {
       eno1.ipv4.addresses = [{
-        address = "192.168.100.4";
+        address = "192.168.200.4";
         prefixLength = 24;
       }];
       eno2.ipv4.addresses = [{
@@ -30,7 +30,7 @@
     };
 
     defaultGateway = {
-      address = "192.168.100.60";
+      address = "192.168.200.60";
       interface = "eno1";
     };
 
