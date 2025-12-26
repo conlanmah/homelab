@@ -8,7 +8,7 @@
 
 | Interface | IP               | Purpose             | Gateway        |
 | --------- | ---------------- | ------------------- | -------------- |
-| enp1s0    | 192.168.100.2/24 | Management and VM's | 192.168.100.60 |
+| enp1s0    | 192.168.200.2/24 | Management and VM's | 192.168.200.60 |
 | enp3s0    | 192.168.150.2/24 | Storage             | NA             |
 # Specs
 

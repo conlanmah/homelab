@@ -22,9 +22,14 @@ A Proxmox and NixOS based homelab
 - [ ] Immich
 	- [x] Create nfs share
 		- [x] ensure zfs auto snapshot
-	- [ ] Fine tune settings
+	- [x] Fine tune settings
 - [x] Set up everforest host
 	- [x] Research how Proxmox backup works
+- [x] Fix IP Addresses
+	- [x] Switch
+	- [x] wg pi
+	- [x] Data server
+	- [x] Cluster Nodes
 - [ ] Deployer flake
 	- [ ] nixos-rebuild wrapper, use nh probably
 	- [ ] direnv prolly
@@ -32,7 +37,8 @@ A Proxmox and NixOS based homelab
 	- [ ] secrets management
 	- [ ] dedicated builder host?
 		- [ ] where to put the base nix image?
-- [ ] NFS binding on gruvbox
+- [ ] NFS id binding on gruvbox
+- [ ] Tailscale
 
 Large Steps:
 - [ ] backup wireguard instance

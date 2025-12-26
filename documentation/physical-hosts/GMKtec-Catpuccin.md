@@ -9,7 +9,7 @@
 
 | Interface | IP               | Purpose            | Gateway        |
 | --------- | ---------------- | ------------------ | -------------- |
-| enp1s0    | 192.168.100.1/24 | Management and VMs | 192.168.100.60 |
+| enp1s0    | 192.168.200.1/24 | Management and VMs | 192.168.200.60 |
 | enp3s0    | 192.168.150.1/24 | Storage            | NA             |
 # Specs
 
