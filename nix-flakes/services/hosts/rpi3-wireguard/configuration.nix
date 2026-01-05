@@ -73,7 +73,6 @@
 
   networking = {
     hostName = "rpi3-wireguard";
-    networkmanager.enable = true;
     interfaces.enu1u1u1 = {
       ipv4.addresses = [{
         address = "192.168.200.101";
