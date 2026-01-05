@@ -43,7 +43,8 @@ A Proxmox and NixOS based homelab
 Large Steps:
 - [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
-- [ ] DNS or DDNS
+- [ ] DNS or DDNS, Google domains
+	- [ ] NGINX for local domains or SWAG?
 - [ ] Extended Internet Access
 	- [ ] Reverse Proxy or
 	- [ ] DMZ or
