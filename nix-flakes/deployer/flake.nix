@@ -5,7 +5,7 @@
                  building, emulation is required. Enabling this varies between OS's";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
   };
 
   # Chat GPT created with minimal packages required for building 
@@ -18,6 +18,7 @@
       nix
       nixos-rebuild
       openssh
+      terraform
     ];
 
     # Shared shellHook generator
@@ -29,7 +30,10 @@
     devShells = {
       x86_64-linux = let
         system = "x86_64-linux";
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs { 
+          inherit system; 
+          config.allowUnfree = true;
+        };
       in {
         default = pkgs.mkShell {
           packages = getBasePackages pkgs;
