@@ -19,7 +19,7 @@ A Proxmox and NixOS based homelab
 - [x] Reorganize physical devices
 	- [x] Add cables for second NAT on mini's 
 - [x] Update Diagrams
-- [ ] Immich
+- [x] Immich
 	- [x] Create nfs share
 		- [x] ensure zfs auto snapshot
 	- [x] Fine tune settings
@@ -31,8 +31,8 @@ A Proxmox and NixOS based homelab
 	- [x] Data server
 	- [x] Cluster Nodes
 - [ ] Deployer flake
-	- [ ] nixos-rebuild wrapper, use nh probably
-	- [ ] direnv prolly
+	~~- [ ] nixos-rebuild wrapper, use nh probably~~
+	~~- [ ] direnv prolly~~
 	- [ ] determine if terraform integration is better now for addressing
 	- [ ] secrets management
 	- [ ] dedicated builder host?
