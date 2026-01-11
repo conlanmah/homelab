@@ -16,6 +16,11 @@ Workflow:
 	3. Ensure secrets exist
 3. Execute
 
+Configuration Variables for Tool:
+- Command Host public key, this will be added to all terraform provisioned hosts
+- Flake path
+- Terraform path
+
 Commands:
 - `tn build <targets>`
 	- builds target vms and containers defined in the terraform and nix configurations
@@ -27,8 +32,21 @@ Commands:
 - `tn list`
 	- Lists containers and vms in terraform and nix
 	- Highlights configurations in terraform that don't have a corresponding nix configuration and vice versa
+- `tn check`
+	- Confirms there are no configuration conflicts between NixOS and Terraform
+		- Hostname
+		- Networking
+		- Password
 - `tn help`
 - `tn doctor`
 	- tests terraform provider
 	- verifies paths in configuration file
 	- confirms secrets management
+
+NixOS and Terraform config conflicts:
+- Hostname, must match in both. Nix will override after 1st boot.
+	- Perplexity is saying 'lib.mkdefault' can allow Nix to defer to Terraform, really not sure about this one.
+- Networking:
+	- Can allow NixOS to defer to Terraform with: `systemd.network.enable = true;`
+	- Although dhcp with ddns may complicate this
+- Password, NixOS overrides

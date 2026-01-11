@@ -17,6 +17,7 @@
     getBasePackages = pkgs: with pkgs; [
       nix
       nixos-rebuild
+      nixos-generators # for creating lxc tar
       openssh
       terraform
     ];

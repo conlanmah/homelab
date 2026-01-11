@@ -33,10 +33,12 @@ A Proxmox and NixOS based homelab
 - [ ] Deployer flake
 	~~- [ ] nixos-rebuild wrapper, use nh probably~~
 	~~- [ ] direnv prolly~~
-	- [ ] determine if terraform integration is better now for addressing
+	~~- [ ] determine if terraform integration is better now for addressing~~
 	- [ ] secrets management
-	- [ ] dedicated builder host?
-		- [ ] where to put the base nix image?
+	~~- [ ] dedicated builder host?~~
+		~~- [ ] where to put the base nix image?~~
+	- [ ] Working Terraform Configuration
+	- [ ] 
 - [ ] NFS id binding on gruvbox
 - [ ] Tailscale
 
