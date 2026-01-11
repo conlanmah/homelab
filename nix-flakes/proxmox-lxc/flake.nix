@@ -1,5 +1,5 @@
 {
-  description = "NixOS Proxmox LXC tarball (SSH-ready immediately)";
+  description = "NixOS Proxmox LXC tarball, SSH-ready immediately";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -28,7 +28,7 @@
               users.mutableUsers = false;
 
               # Proxmox typically governs filtering; avoid "SSH is up but blocked"
-              networking.firewall.enable = false;
+              # networking.firewall.enable = false;
 
               # Helpful in containers: don't block boot waiting for "online"
               systemd.network.wait-online.enable = false;
@@ -40,42 +40,34 @@
               networking.hostName = "nixos-lxc";
 
               # Be explicit: use systemd-networkd and DHCP on eth0.
-              networking.useNetworkd = true;
+              # networking.useNetworkd = true; # Experimental
+              systemd.network.enable = true;
               networking.useDHCP = false;
-              networking.interfaces.eth0.useDHCP = true;
+              # networking.interfaces.eth0.useDHCP = false;
 
               services.resolved.enable = true;
 
               ############################################################
-              # SSH доступ immediately after first boot
+              # SSH 
               ############################################################
               services.openssh = {
                 enable = true;
-                openFirewall = false;
+                openFirewall = true;
                 settings = {
                   PasswordAuthentication = false;
                   KbdInteractiveAuthentication = false;
                   PermitRootLogin = "prohibit-password";
-                  UseDNS = false;
                 };
               };
 
               # Bootstrap access: pick ONE pattern (root key, or dedicated user).
               # Keeping both is convenient for early automation; remove root later.
 
+              # TODO Replace
               users.users.root.openssh.authorizedKeys.keys = [
-                "ssh-ed25519 AAAA...REPLACE_ME... root-bootstrap"
+                "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
               ];
-
-              users.users.terraform = {
-                isNormalUser = true;
-                description = "Terraform bootstrap user";
-                extraGroups = [ "wheel" ];
-                openssh.authorizedKeys.keys = [
-                  "ssh-ed25519 AAAA...REPLACE_ME... terraform-bootstrap"
-                ];
-              };
-
+              
               security.sudo = {
                 enable = true;
                 wheelNeedsPassword = false;
@@ -86,18 +78,15 @@
               ############################################################
               # Proxmox console works, but getty management can be weird in LXCs.
               # Disabling autovt/getty reduces useless units/log noise.
-              systemd.services."getty@tty1".enable = lib.mkDefault false;
-              systemd.services."autovt@tty1".enable = lib.mkDefault false;
+              # systemd.services."getty@tty1".enable = lib.mkDefault false;
+              # systemd.services."autovt@tty1".enable = lib.mkDefault false;
 
-              ############################################################
-              # Useful base tools for provisioning / debugging
-              ############################################################
               environment.systemPackages = with pkgs; [
                 curl
                 git
-                openssh
-                iproute2
-                ca-certificates
+                # openssh
+                # iproute2
+                # ca-certificates
                 vim
               ];
 
@@ -106,7 +95,7 @@
               time.timeZone = "UTC";
               i18n.defaultLocale = "en_US.UTF-8";
 
-              # Set this to the release semantics you want to “lock in”
+              # Ya Dee De, blah blah danger danger, idk what this even does
               system.stateVersion = "25.11";
             })
         ];
