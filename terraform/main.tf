@@ -27,6 +27,15 @@ resource "proxmox_virtual_environment_container" "nix_ct_test" {
     unprivileged        = true
     tags                = ["terraform"]
 
+    initialization {
+        hostname        = "nix-ct-test"
+        ip_config {
+            ipv4 {
+                address = "dhcp"
+            }
+        }
+    }
+
     cpu {
         architecture    = "amd64"
         cores           = 2
@@ -43,11 +52,12 @@ resource "proxmox_virtual_environment_container" "nix_ct_test" {
     }
 
     operating_system {
-        template_file_id = "isos:vztmpl/nixos-image-lxc-proxmox-25.05pre-git-x86_64-linux.tar.xz"
+        template_file_id = "isos:vztmpl/nixos-image-lxc-proxmox-25.05.20250112.2f9e2f8-x86_64-linux.tar.xz"
+        type = "nixos"
     }
 
     network_interface {
-        name            = "vmbr0"
+        name            = "eth0"
     }
 
     features {

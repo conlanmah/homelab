@@ -2,7 +2,7 @@
   description = "NixOS Proxmox LXC tarball, SSH-ready immediately";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixos-generators.url = "github:nix-community/nixos-generators";
   };
 
@@ -105,8 +105,8 @@
               };
             in 
             {
-              inherit proxmox-lxc
-              default = proxmox-lxc
+              inherit proxmox-lxc;
+              default = proxmox-lxc;
             };
       };
     };

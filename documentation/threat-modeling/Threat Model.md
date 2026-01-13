@@ -22,3 +22,6 @@ Threats:
 - Data Related
 	- 
 - DOS / DDOS
+- Authentication:
+	- Stolen ssh keys + passwordless sudo
+		- Restrict ssh to subnets
