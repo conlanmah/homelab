@@ -27,8 +27,8 @@
                     ############################################################
                     boot.isContainer = true;
 
-                    # Keep builds deterministic / automation-friendly
-                    users.mutableUsers = false;
+                    # Allows Terraform to set password 
+                    users.mutableUsers = true;
 
                     # Proxmox typically governs filtering; avoid "SSH is up but blocked"
                     # networking.firewall.enable = false;
