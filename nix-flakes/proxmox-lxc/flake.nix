@@ -16,7 +16,6 @@
           let
             proxmox-lxc = nixos-generators.nixosGenerate {
               inherit system;
-              # This is the key part: build a Proxmox LXC template tarball.
               format = "proxmox-lxc";
 
               modules = [
@@ -62,10 +61,6 @@
                         PermitRootLogin = "prohibit-password";
                       };
                     };
-
-                    # Bootstrap access: pick ONE pattern (root key, or dedicated user).
-                    # Keeping both is convenient for early automation; remove root later.
-
                     # TODO Replace
                     # users.users.root.openssh.authorizedKeys.keys = [
                     #   "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
@@ -87,9 +82,6 @@
                     environment.systemPackages = with pkgs; [
                       curl
                       git
-                      # openssh
-                      # iproute2
-                      # ca-certificates
                       vim
                     ];
 
