@@ -2,6 +2,7 @@
   description = "NixOS Proxmox LXC tarball, SSH-ready immediately";
 
   inputs = {
+    # for some reason the final built tarbell is listed as 25.05
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixos-generators.url = "github:nix-community/nixos-generators";
   };
@@ -39,7 +40,7 @@
                     ############################################################
                     # Networking (Proxmox LXC generally presents eth0)
                     ############################################################
-                    networking.hostName = "nixos-lxc";
+                    networking.hostName = "nixos-lxc-proxmox";
 
                     # Be explicit: use systemd-networkd and DHCP on eth0.
                     # networking.useNetworkd = true; # Experimental
