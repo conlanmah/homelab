@@ -23,7 +23,7 @@ provider "proxmox" {
 
 resource "proxmox_virtual_environment_container" "nix_ct_test" {
     node_name           = "everforest"
-    vm_id               = 201
+    # vm_id               = 201
     unprivileged        = true
     tags                = ["terraform"]
 
@@ -31,8 +31,15 @@ resource "proxmox_virtual_environment_container" "nix_ct_test" {
         hostname        = "nix-ct-test"
         ip_config {
             ipv4 {
-                address = "dhcp"
+                address = "192.168.200.103/24"
+                gateway = "192.168.200.60"
             }
+        }
+        user_account {
+            keys = [
+                "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
+            ]
+            password = "testpass!!"
         }
     }
 
@@ -63,4 +70,6 @@ resource "proxmox_virtual_environment_container" "nix_ct_test" {
     features {
         nesting = true
     }
+
+
 }

@@ -44,9 +44,9 @@ Commands:
 	- confirms secrets management
 
 NixOS and Terraform config conflicts:
-- Hostname, must match in both. Nix will override after 1st boot.
-	- Perplexity is saying 'lib.mkdefault' can allow Nix to defer to Terraform, really not sure about this one.
+- Hostname, must match in both. Terraform provision overrides Nix lxc tar, but nix rebuilds will overrride Terraform.
 - Networking:
 	- Can allow NixOS to defer to Terraform with: `systemd.network.enable = true;`
 	- Although dhcp with ddns may complicate this
 - Password, NixOS overrides
+	- I can apply ssh keys via terraform, but not passwords.
