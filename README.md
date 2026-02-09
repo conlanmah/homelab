@@ -39,7 +39,7 @@ A Proxmox and NixOS based homelab
 		~~- [ ] where to put the base nix image?~~
 	- [x] Working Terraform Configuration
 	- [ ] Terraform Module for containers
-	- [ ] 
+		- [ ] Terraform state management
 - [ ] Split proxmox lxc flake and deployer tool into separate repos
 - [ ] NFS id binding on gruvbox
 - [ ] Tailscale

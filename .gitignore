@@ -5,3 +5,15 @@
 .pem
 ./secrets/*
 result/
+
+# Terraform
+
+*.tfstate
+*.tfstate.*
+
+*.tfvars
+*.tfvars.*
+
+*.tfplan
+tfplan
+plan.out
