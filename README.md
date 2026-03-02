@@ -1,5 +1,9 @@
 # homelab
-A Proxmox and NixOS based homelab
+
+A Proxmox and NixOS based homelab.
+Uses my two other projects:
+- [SSH Ready NixOS Container for Proxmox](https://github.com/conlanmah/nixos-proxmox-ct)
+- [Terraform and NixOS Orchestration Tool]()
 
 # TODO
 

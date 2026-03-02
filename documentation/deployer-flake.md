@@ -50,3 +50,13 @@ NixOS and Terraform config conflicts:
 	- Although dhcp with ddns may complicate this
 - Password, NixOS overrides
 	- I can apply ssh keys via terraform, but not passwords.
+
+Secrets management:
+- SOPS + age Keys
+	- everything in repo
+	- easy to lose
+	- simple
+- Dedicated secrets manager
+	- requires bootstrapping
+	- more complicated
+	- 
