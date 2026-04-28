@@ -42,9 +42,9 @@ Uses my two other projects:
 	~~- [ ] dedicated builder host?~~
 		~~- [ ] where to put the base nix image?~~
 	- [x] Working Terraform Configuration
-	- [ ] Terraform Module for containers
+	- [x] Terraform Module for containers
 		- [ ] Terraform state management
-- [ ] Split proxmox lxc flake and deployer tool into separate repos
+- [x] Split proxmox lxc flake and deployer tool into separate repos
 - [ ] NFS id binding on gruvbox
 - [ ] Tailscale
 
@@ -73,3 +73,22 @@ Large Steps:
 - [ ] Music hosting recommended by O
 - [ ] Redo EVERYTHING once the proxmox-nixos project matures and stabilizes
 
+
+Remote file storage use cases:
+- Transfer files between phone and computer
+- access offline
+- syncing obsidian repository
+- redundancy
+- Easy access on new devices
+- Sort and access media for video editing
+- Potential solutions
+	- syncthing
+	- seafile
+	- nextcloud
+	- copy party
+	- rclone + round sync
+
+Secure public access:
+- DMZ resources:
+	- DNS
+	- immich?
