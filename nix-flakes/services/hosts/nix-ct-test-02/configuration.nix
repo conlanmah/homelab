@@ -5,18 +5,57 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+                    ############################################################
+                    # Container / Proxmox LXC baseline
+                    ############################################################
+                    boot.isContainer = true;
 
+                    # Allows Terraform to set password 
+                    users.mutableUsers = true;
 
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "25.05"; # Did you read the comment?
+                    # Proxmox typically governs filtering; avoid "SSH is up but blocked"
+                    # networking.firewall.enable = false;
 
+                    # Helpful in containers: don't block boot waiting for "online"
+                    systemd.network.wait-online.enable = false;
+                    systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
+
+                    ############################################################
+                    # Networking (Proxmox LXC generally presents eth0)
+                    ############################################################
+                    networking.hostName = "nixos-lxc";
+
+                    # Be explicit: use systemd-networkd and DHCP on eth0.
+                    # networking.useNetworkd = true; # Experimental
+                    systemd.network.enable = true;
+                    networking.useDHCP = false;
+                    # networking.interfaces.eth0.useDHCP = false;
+
+                    services.resolved.enable = true;
+
+                    ############################################################
+                    # SSH 
+                    ############################################################
+                    services.openssh = {
+                      enable = true;
+                      openFirewall = true;
+                      settings = {
+                        PasswordAuthentication = false;
+                        KbdInteractiveAuthentication = false;
+                        PermitRootLogin = "prohibit-password";
+                      };
+                    };
+                   
+                    security.sudo = {
+                      enable = true;
+                      wheelNeedsPassword = false;
+                    };
+
+                    ############################################################
+                    # Container niceties / reduce console noise
+                    ############################################################
+                    # Proxmox console works, but getty management can be weird in LXCs.
 }
+
 
