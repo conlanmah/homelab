@@ -32,7 +32,7 @@
   ############################################################
   # Networking (Proxmox LXC generally presents eth0)
   ############################################################
-  networking.hostName = "nixos-lxc";
+  networking.hostName = "nix-ct-test-02";
 
   # Be explicit: use systemd-networkd and DHCP on eth0.
   # networking.useNetworkd = true; # Experimental
