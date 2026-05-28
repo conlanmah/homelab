@@ -1,7 +1,14 @@
+terraform {
+  required_providers {
+    proxmox = {
+      source  = "bpg/proxmox"
+      version = "~> 0.70"
+    }
+  }
+}
+
 resource "proxmox_virtual_environment_container" "this" {
-  node_name    = var.node_name
-  unprivileged = var.unprivileged
-  tags         = var.tags
+  node_name = var.node_name
 
   initialization {
     hostname = var.hostname
@@ -20,8 +27,11 @@ resource "proxmox_virtual_environment_container" "this" {
   }
 
   cpu {
-    architecture = var.cpu_architecture
-    cores        = var.cpu_cores
+    cores = var.cpu_cores
+  }
+
+  memory {
+    dedicated = var.memory_mb
   }
 
   disk {
@@ -29,21 +39,21 @@ resource "proxmox_virtual_environment_container" "this" {
     size         = var.disk_size_gb
   }
 
-  memory {
-    dedicated = var.memory_mb
-    swap      = var.swap_mb
+  network_interface {
+    name = "eth0"
   }
 
   operating_system {
     template_file_id = var.template_file_id
-    type             = "nixos" # var.os_type
-  }
-
-  network_interface {
-    name = var.network_interface_name
+    type             = "nixos"
   }
 
   features {
-    nesting = var.nesting
+    nesting = true
   }
+
+  unprivileged = true
+  start_on_boot = true
+
+  tags = var.tags
 }
