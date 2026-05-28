@@ -69,6 +69,7 @@ Large Steps:
 - [ ] RSS reader
 - [ ] Wallabag for storing articles to read
 - [ ] copyparty for a file server
+- [ ] rclone?
 - [ ] NTP?
 - [ ] Music hosting recommended by O
 - [ ] Redo EVERYTHING once the proxmox-nixos project matures and stabilizes

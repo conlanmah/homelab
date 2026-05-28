@@ -6,10 +6,10 @@
 | Proxmox | everforest | home.arpa | 192.168.50.1 |
 # Interfaces
 
-| Interface | IP               | Purpose             | Gateway        |
-| --------- | ---------------- | ------------------- | -------------- |
-| enp1s0    | 192.168.200.2/24 | Management and VM's | 192.168.200.60 |
-| enp3s0    | 192.168.150.2/24 | Storage             | NA             |
+| Interface | IP               | Purpose             | Gateway        | MAC               |
+| --------- | ---------------- | ------------------- | -------------- | ----------------- |
+| enp1s0    | 192.168.200.2/24 | Management and VM's | 192.168.200.60 | e0:51:d8:1a:6a:0a |
+| enp3s0    | 192.168.150.2/24 | Storage             | NA             | e0:51:d8:1a:6a:0b |
 # Specs
 
 | Model          | CPU  | RAM       |
