@@ -19,6 +19,7 @@
 
   # Allows Terraform to set password
   users.mutableUsers = true;
+  # These two lines are essential for container functionality.
   nixpkgs.hostPlatform = "x86_64-linux";
   imports = [ (modulesPath + "/virtualisation/proxmox-lxc.nix") ];
 
