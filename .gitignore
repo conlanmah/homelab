@@ -11,8 +11,8 @@ result/
 *.tfstate
 *.tfstate.*
 
-*.tfvars
-*.tfvars.*
+# *.tfvars
+# *.tfvars.*
 
 *.tfplan
 tfplan
