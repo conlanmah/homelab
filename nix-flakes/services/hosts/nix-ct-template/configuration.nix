@@ -11,7 +11,6 @@
 }:
 
 {
-
   ############################################################
   # Container / Proxmox LXC baseline
   ############################################################
@@ -34,13 +33,9 @@
   # Networking (Proxmox LXC generally presents eth0)
   ############################################################
   networking.hostName = "nix-ct-test-02";
-
-  # Be explicit: use systemd-networkd and DHCP on eth0.
-  # networking.useNetworkd = true; # Experimental
-  systemd.network.enable = true;
   networking.useDHCP = false;
+  systemd.network.enable = true;
   # networking.interfaces.eth0.useDHCP = false;
-
   services.resolved.enable = true;
 
   ############################################################
@@ -61,10 +56,6 @@
     wheelNeedsPassword = false;
   };
 
-  ############################################################
-  # Container niceties / reduce console noise
-  ############################################################
-  # Proxmox console works, but getty management can be weird in LXCs.
   ###### NEVER CHANGE THIS
   system.stateVersion = "25.05";
 }

@@ -15,16 +15,17 @@ container_defaults = {
   user_password    = "changeme"
   cpu_cores        = 2
   memory_mb        = 2048
+  tags             = ["prod"]
 }
 
 # Individual containers - only specify what's unique/different
 nix_containers = {
-  "nix-ct-test-02" = {
-    ipv4_address = "192.168.200.106/24"
-  }
-  "nix-ct-test-03" = {
-    ipv4_address = "192.168.200.107/24"
-    node_name = "nord"
-    cpu_cores = 1
-  }
+  # "nix-ct-test-02" = {
+  #   ipv4_address = "192.168.200.104/24"
+  # }
+  # "nix-ct-test-03" = {
+  #   ipv4_address = "192.168.200.103/24"
+  #   # node_name = "nord"
+  #   # cpu_cores = 1
+  # }
 }
