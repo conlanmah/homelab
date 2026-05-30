@@ -20,9 +20,12 @@ container_defaults = {
 
 # Individual containers - only specify what's unique/different
 nix_containers = {
-  # "nix-ct-test-02" = {
-  #   ipv4_address = "192.168.200.104/24"
-  # }
+  "tailscale" = {
+    ipv4_address = "192.168.200.103/24"
+    node_name = "everforest"
+    cpu_cores = 1
+    memory_mb = 2048
+  }
   # "nix-ct-test-03" = {
   #   ipv4_address = "192.168.200.103/24"
   #   # node_name = "nord"
