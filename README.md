@@ -34,7 +34,8 @@ Uses my two other projects:
 	- [x] wg pi
 	- [x] Data server
 	- [x] Cluster Nodes
-- [ ] Deployer flake
+- [x] Deployer flake
+	- [x] MVP for running terraform and nixos together
 	~~- [ ] nixos-rebuild wrapper, use nh probably~~
 	~~- [ ] direnv prolly~~
 	~~- [ ] determine if terraform integration is better now for addressing~~
@@ -47,6 +48,7 @@ Uses my two other projects:
 - [x] Split proxmox lxc flake and deployer tool into separate repos
 - [ ] NFS id binding on gruvbox
 - [ ] Tailscale
+- [ ] Local DNS
 
 Large Steps:
 - [ ] backup wireguard instance
