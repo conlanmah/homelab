@@ -18,6 +18,12 @@
 
   services.tailscale = {
     enable = true;
+    interfaceName = "userspace-networking";
+    useRoutingFeatures = "server";
+    extraSetFlags = [
+      # "--advertise-exit-node"
+      "--advertise-routes=192.168.200.0/24"
+    ];
   };
 
 
