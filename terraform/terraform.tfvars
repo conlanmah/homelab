@@ -26,6 +26,12 @@ nix_containers = {
     cpu_cores = 1
     memory_mb = 2048
   }
+  "ns1" = {
+    ipv4_address = "192.168.200.104/24"
+    node_name = "everforest"
+    cpu_cores = 1
+    memory_mb = 2048
+  }
   # "nix-ct-test-03" = {
   #   ipv4_address = "192.168.200.103/24"
   #   # node_name = "nord"
