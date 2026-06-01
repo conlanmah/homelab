@@ -7,6 +7,8 @@ Uses my two other projects:
 
 # TODO
 
+- [ ] Upgrade to NixOS 26.05
+- [ ] Import Immich to terraform
 - [x] Wireguard on RPi
 	- [ ] ~~Create deploy/builder flake that manages signing~~
 	- [ ] ~~Update the initial image to trust the signing key
@@ -47,7 +49,7 @@ Uses my two other projects:
 		- [ ] Terraform state management
 - [x] Split proxmox lxc flake and deployer tool into separate repos
 - [ ] NFS id binding on gruvbox
-- [ ] Tailscale
+- [x] Tailscale
 - [ ] Local DNS
 
 Large Steps:
