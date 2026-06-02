@@ -26,7 +26,11 @@ nix_containers = {
     cpu_cores = 1
     memory_mb = 2048
   }
+<<<<<<< HEAD
   "ns01" = {
+=======
+  "ns1" = {
+>>>>>>> ns1
     ipv4_address = "192.168.200.104/24"
     node_name = "everforest"
     cpu_cores = 1
