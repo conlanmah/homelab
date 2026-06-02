@@ -26,9 +26,9 @@
 
     zones = {
       "mah" = {
-        master = true;
-        slaves = ["192.168.200.33"];
-        file = ./zone-mah;
+        master = false;
+        masters = ["192.168.200.32"];
+        file = "var/cache/bind/zone-mah";
       };
     };
   };
@@ -65,7 +65,7 @@
   ############################################################
   # Networking (Proxmox LXC generally presents eth0)
   ############################################################
-  networking.hostName = "ns1";
+  networking.hostName = "ns2";
   networking.useDHCP = false;
   systemd.network.enable = true;
   # networking.interfaces.eth0.useDHCP = false;

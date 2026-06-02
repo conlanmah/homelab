@@ -7,12 +7,10 @@ Uses my two other projects:
 
 # TODO
 
-- [ ] nginx
-	- [ ] SSL certs
 - [x] Tailscale
-- [ ] Local DNS
+- [x] Local DNS
 	- [x] ns1
-	- [ ] ns2
+	- [x] ns2
 - [ ] Upgrade to NixOS 26.05
 - [ ] Import Immich to terraform
 - [x] Wireguard on RPi
@@ -56,20 +54,19 @@ Uses my two other projects:
 - [x] Split proxmox lxc flake and deployer tool into separate repos
 
 Large Steps:
-- [ ] NFS id binding on gruvbox
 - [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
-- [ ] DNS or DDNS, Google domains
-	- [ ] NGINX for local domains or SWAG?
+- [ ] Global DNS
+- [ ] DDNS
 - [ ] Extended Internet Access
 	- [ ] Reverse Proxy or
-	- [ ] DMZ or
-	- [ ] headscale VPS
+	- [ ] DMZ
 - [ ] Terraform for Proxmox
 - [ ] IP fabric?
 - [ ] Directory Services/SSO
 	- [ ] Kerberos?
 	- [ ] LDAP?
+	- [ ] Authentik seems like the best
 - [ ] Paperless NGX
 - [ ] Find My Device
 - [ ] Gafana for dashboard
@@ -77,6 +74,7 @@ Large Steps:
 - [ ] RSS reader
 - [ ] Wallabag for storing articles to read
 - [ ] copyparty for a file server
+- [ ] git remote, code berg or something
 - [ ] rclone?
 - [ ] NTP?
 - [ ] Music hosting recommended by O
