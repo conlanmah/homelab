@@ -7,6 +7,12 @@ Uses my two other projects:
 
 # TODO
 
+- [ ] nginx
+	- [ ] SSL certs
+- [x] Tailscale
+- [ ] Local DNS
+	- [x] ns1
+	- [ ] ns2
 - [ ] Upgrade to NixOS 26.05
 - [ ] Import Immich to terraform
 - [x] Wireguard on RPi
@@ -48,11 +54,9 @@ Uses my two other projects:
 	- [x] Terraform Module for containers
 		- [ ] Terraform state management
 - [x] Split proxmox lxc flake and deployer tool into separate repos
-- [ ] NFS id binding on gruvbox
-- [x] Tailscale
-- [ ] Local DNS
 
 Large Steps:
+- [ ] NFS id binding on gruvbox
 - [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
 - [ ] DNS or DDNS, Google domains
