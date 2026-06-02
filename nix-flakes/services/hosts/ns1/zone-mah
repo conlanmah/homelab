@@ -2,7 +2,7 @@ $TTL	30s
 $ORIGIN	mah.
 
 @	IN	SOA	ns1.mah.	admin.mah(
-	2026060102	; serial number
+	2026060200	; serial number
 	1h		; refresh
 	15m		; update retry
 	5d		; expiry
@@ -25,6 +25,6 @@ gruvbox		IN	A	192.168.200.4
 nas01		IN	CNAME	gruvbox	
 
 rpi-wireguard	IN	A	192.168.200.101
-immich-mars	IN	A	192.168.200.102
+immich		IN	A	192.168.200.102
 tailscale	IN	A	192.168.200.103
 
