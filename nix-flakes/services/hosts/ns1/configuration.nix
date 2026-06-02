@@ -17,6 +17,13 @@
 
   services.bind = {
     enable = true;
+    forwarders = ["192.168.50.1"];
+    listenOn = ["any"]; # This is fine cause can't get requests from internet
+    cacheNetworks = [
+      "127.0.0.1"
+      "192.168.0.0/16"
+    ];
+
     zones = {
       "mah" = {
         master = true;
@@ -24,6 +31,17 @@
       };
     };
   };
+
+  networking.firewall = {
+    allowedTCPPorts = [53];
+    allowedUDPPorts = [53];
+  };
+
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    inetutils
+    bind
+  ];
   
   ############################################################
   # Container / Proxmox LXC baseline

@@ -1,13 +1,17 @@
 $TTL	30s
 $ORIGIN	mah.
 
-@	IN	SOA	ns1.mah.	(
-	2026060100	; serial number
+@	IN	SOA	ns1.mah.	admin.mah(
+	2026060102	; serial number
 	1h		; refresh
 	15m		; update retry
 	5d		; expiry
 	1m		; minimum
 )
+
+@		IN	NS	ns1.mah.
+@		IN	NS	ns2.mah.
+
 ns1		IN	A	192.168.200.32
 ns2		IN	A	192.168.200.33
 
