@@ -17,6 +17,7 @@ variable "container_defaults" {
     node_name        = string
     datastore_id     = string
     template_file_id = string
+    default_bridge   = optional(string, "vmbr0")  # Proxmox bridge name; must exist on target node
     ipv4_gateway     = string
     ssh_public_keys  = list(string)
     user_password    = string
@@ -30,11 +31,15 @@ variable "container_defaults" {
 variable "nix_containers" {
   description = "NixOS containers to create (values override defaults)"
   type = map(object({
-    ipv4_address     = string                 # Required: unique per host
-    node_name        = optional(string)       # Override default node
+    interfaces = list(object({
+      name    = optional(string)  # defaults to "eth{index}"
+      bridge  = optional(string)  # defaults to container_defaults.default_bridge
+      ip      = string            # required; CIDR notation e.g. 192.168.1.10/24
+      gateway = optional(string)  # primary interface defaults to ipv4_gateway; secondary defaults to null
+    }))
+    node_name        = optional(string)
     datastore_id     = optional(string)
     template_file_id = optional(string)
-    ipv4_gateway     = optional(string)
     ssh_public_keys  = optional(list(string))
     user_password    = optional(string)
     cpu_cores        = optional(number)

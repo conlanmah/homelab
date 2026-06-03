@@ -1,15 +1,21 @@
 
-
 locals {
   # Merge defaults with per-host overrides
   containers = {
     for name, host in var.nix_containers : name => {
-      hostname         = name
-      ipv4_address     = host.ipv4_address
+      hostname = name
+      interfaces = [
+        for i, iface in host.interfaces : {
+          name   = coalesce(iface.name, "eth${i}")
+          bridge = coalesce(iface.bridge, var.container_defaults.default_bridge)
+          ip     = iface.ip
+          # Only the primary interface (index 0) defaults to ipv4_gateway; secondary NICs get null unless explicit
+          gateway = i == 0 ? coalesce(iface.gateway, var.container_defaults.ipv4_gateway) : iface.gateway
+        }
+      ]
       node_name        = coalesce(host.node_name, var.container_defaults.node_name)
       datastore_id     = coalesce(host.datastore_id, var.container_defaults.datastore_id)
       template_file_id = coalesce(host.template_file_id, var.container_defaults.template_file_id)
-      ipv4_gateway     = coalesce(host.ipv4_gateway, var.container_defaults.ipv4_gateway)
       ssh_public_keys  = coalesce(host.ssh_public_keys, var.container_defaults.ssh_public_keys)
       user_password    = coalesce(host.user_password, var.container_defaults.user_password)
       cpu_cores        = coalesce(host.cpu_cores, var.container_defaults.cpu_cores)
@@ -25,9 +31,8 @@ module "nix_container" {
   source   = "./modules/nix-ct"
 
   hostname         = each.value.hostname
+  interfaces       = each.value.interfaces
   node_name        = each.value.node_name
-  ipv4_address     = each.value.ipv4_address
-  ipv4_gateway     = each.value.ipv4_gateway
   datastore_id     = each.value.datastore_id
   template_file_id = each.value.template_file_id
   ssh_public_keys  = each.value.ssh_public_keys

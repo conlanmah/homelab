@@ -1,8 +1,8 @@
 output "hosts" {
-  description = "Host information for ntd"
+  description = "Host information"
   value = {
     for name, container in module.nix_container : name => {
-      ip = trimsuffix(container.ipv4_address, "/24")
+      ips = [for ip in container.ipv4_addresses : trimsuffix(ip, "/24")]
     }
   }
 }

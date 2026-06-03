@@ -13,10 +13,13 @@ resource "proxmox_virtual_environment_container" "this" {
   initialization {
     hostname = var.hostname
 
-    ip_config {
-      ipv4 {
-        address = var.ipv4_address
-        gateway = var.ipv4_gateway
+    dynamic "ip_config" {
+      for_each = var.interfaces
+      content {
+        ipv4 {
+          address = ip_config.value.ip
+          gateway = ip_config.value.gateway
+        }
       }
     }
 
@@ -39,8 +42,12 @@ resource "proxmox_virtual_environment_container" "this" {
     size         = var.disk_size_gb
   }
 
-  network_interface {
-    name = "eth0"
+  dynamic "network_interface" {
+    for_each = var.interfaces
+    content {
+      name   = network_interface.value.name
+      bridge = network_interface.value.bridge
+    }
   }
 
   operating_system {
@@ -52,7 +59,7 @@ resource "proxmox_virtual_environment_container" "this" {
     nesting = true
   }
 
-  unprivileged = true
+  unprivileged  = true
   start_on_boot = true
 
   tags = var.tags

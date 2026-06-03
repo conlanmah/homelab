@@ -8,14 +8,14 @@ variable "node_name" {
   type        = string
 }
 
-variable "ipv4_address" {
-  description = "IPv4 address with CIDR (e.g., 192.168.1.10/24)"
-  type        = string
-}
-
-variable "ipv4_gateway" {
-  description = "IPv4 gateway address"
-  type        = string
+variable "interfaces" {
+  description = "Network interfaces (name, bridge, ip with CIDR, optional gateway)"
+  type = list(object({
+    name    = string
+    bridge  = string
+    ip      = string
+    gateway = optional(string)
+  }))
 }
 
 variable "datastore_id" {

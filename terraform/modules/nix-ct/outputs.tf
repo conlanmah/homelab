@@ -1,6 +1,6 @@
-output "ipv4_address" {
-  description = "Container IPv4 address"
-  value       = var.ipv4_address
+output "ipv4_addresses" {
+  description = "Container IPv4 addresses"
+  value       = [for iface in var.interfaces : iface.ip]
 }
 
 output "container_id" {
