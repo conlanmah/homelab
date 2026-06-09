@@ -42,3 +42,33 @@ module "nix_container" {
   disk_size_gb     = each.value.disk_size_gb
   tags             = each.value.tags
 }
+
+# Not importing this cause lack of support for unprivileged containers
+# makes this a headache
+
+# module "immich" {
+#   source   = "./modules/nix-ct"
+  
+#   hostname         = "immich-mars"
+#   interfaces       = [
+#     {
+#       name = "eth0" 
+#       ip = "192.168.200.102/24", 
+#       bridge = "vmbr0", 
+#       gateway = "192.168.200.60" 
+#     },                                          # vmbr0, default gateway
+#     { 
+#       name = "eth1"
+#       ip = "192.168.150.102/24", 
+#       bridge = "vmbr1"
+#     },    # vmbr1, explicit gateway
+#   ]
+#   node_name        = "catpuccin"
+#   datastore_id     = "vdisks"
+#   template_file_id = "isos:vztmpl/nixos-image-lxc-proxmox-25.05.20250112.2f9e2f8-x86_64-linux.tar.xz"
+#   ssh_public_keys  = ["ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"]
+#   user_password    = "changeme"
+#   cpu_cores        = 4
+#   memory_mb        = 8096
+#   tags             = ["prod"]
+# }
