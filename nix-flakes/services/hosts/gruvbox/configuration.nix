@@ -34,7 +34,7 @@
       interface = "eno1";
     };
 
-    nameservers = ["192.168.50.1" "8.8.8.8"];
+    nameservers = ["192.168.200.32" "192.168.200.33" "192.168.50.1" "8.8.8.8"];
 
     firewall = {
       enable = true;
@@ -126,14 +126,17 @@
   #################################################################
 
   fileSystems."/export/vdisks" = {
+    fsType = "none";
     device = "/tank/vdisks";
     options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service" ];
   }; 
   fileSystems."/export/isos" = {
+    fsType = "none";
     device = "/tank/isos";
     options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service" ];
   }; 
   fileSystems."/export/immich-mars" = {
+    fsType = "none";
     device = "/tank/immich-mars";
     options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service" ];
   }; 
