@@ -7,12 +7,13 @@ Uses my two other projects:
 
 # TODO
 
+- [ ] Remote storage
 - [x] Tailscale
 - [x] Local DNS
 	- [x] ns1
 	- [x] ns2
-- [ ] Upgrade to NixOS 26.05
-- [ ] Import Immich to terraform
+- [x] Upgrade to NixOS 26.05
+~~- [ ] Import Immich to terraform~~
 - [x] Wireguard on RPi
 	- [ ] ~~Create deploy/builder flake that manages signing~~
 	- [ ] ~~Update the initial image to trust the signing key
@@ -24,7 +25,7 @@ Uses my two other projects:
 - [x] Test Harddrives
 - [x] Install T330
 - [x] Add Proxmox Nodes to cluster
-- [ ] Research and get/build a UPS
+- [x] Research and get/build a UPS
 	- [ ] Configure nut-client
 - [x] Reorganize physical devices
 	- [x] Add cables for second NAT on mini's 
@@ -54,12 +55,12 @@ Uses my two other projects:
 - [x] Split proxmox lxc flake and deployer tool into separate repos
 
 Large Steps:
-- [ ] backup wireguard instance
 - [ ] Borg Backup or Proxmox Backup
 - [ ] Global DNS
+- [ ] Modularize or use Dendritic
 - [ ] DDNS
 - [ ] Extended Internet Access
-	- [ ] Reverse Proxy or
+	- [ ] Reverse Proxy (nginx or traefik) or
 	- [ ] DMZ
 - [ ] Terraform for Proxmox
 - [ ] IP fabric?
@@ -70,10 +71,12 @@ Large Steps:
 - [ ] Paperless NGX
 - [ ] Find My Device
 - [ ] Gafana for dashboard
+- [ ] Homepage app?
 - [ ] Uptime Kuma for Reporting
 - [ ] RSS reader
-- [ ] Wallabag for storing articles to read
-- [ ] copyparty for a file server
+- [ ] Bookmark app
+	- [ ] Wallabag
+	- [ ] karakeep
 - [ ] git remote, code berg or something
 - [ ] rclone?
 - [ ] NTP?
