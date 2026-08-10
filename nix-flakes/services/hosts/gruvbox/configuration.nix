@@ -90,7 +90,9 @@
       isNormalUser = true;
       description = "conlan";
       extraGroups = [ "networkmanager" "wheel" ];
-      packages = with pkgs; [];
+      packages = with pkgs; [
+        tmux
+      ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBEzI4fdj6ZyIidOX4+CIcbuPCXJgC1to97KvaI+mtC6 conlan@nixos"
       ];
@@ -140,6 +142,11 @@
     device = "/tank/immich-mars";
     options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service" ];
   }; 
+  fileSystems."/export/karakeep" = {
+    fsType = "none";
+    device = "/tank/karakeep";
+    options = [ "bind" "x-systemd.requires=zfs-mount.service" "x-systemd.after=zfs-mount.service" ];
+  }; 
 
   # Could easily make this a function, also is not nessesarily required
   # But is in general good practice and separates ZFS from NFS a bit
@@ -157,6 +164,7 @@
       /export/vdisks        192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
       /export/isos          192.168.150.0/24(rw,sync,no_root_squash,no_subtree_check)
       /export/immich-mars   192.168.150.102(rw,sync,no_root_squash,no_subtree_check)
+      /export/karakeep      192.168.150.104(rw,sync,no_root_squash,no_subtree_check)
     '';
   };
 

@@ -8,6 +8,12 @@ Uses my two other projects:
 # TODO
 
 - [ ] Remote storage
+- [ ] Make nix vm terraform module
+- [ ] Karakeep
+	- [ ] base install
+	- [ ] secrets, storage
+	- [ ] ollama
+	- [ ] floccus?
 - [x] Tailscale
 - [x] Local DNS
 	- [x] ns1
@@ -74,9 +80,6 @@ Large Steps:
 - [ ] Homepage app?
 - [ ] Uptime Kuma for Reporting
 - [ ] RSS reader
-- [ ] Bookmark app
-	- [ ] Wallabag
-	- [ ] karakeep
 - [ ] git remote, code berg or something
 - [ ] rclone?
 - [ ] NTP?

@@ -2,7 +2,7 @@ $TTL	30s
 $ORIGIN	mah.
 
 @	IN	SOA	ns1.mah.	admin.mah(
-	2026060200	; serial number
+	2026080101	; serial number
 	1h		; refresh
 	15m		; update retry
 	5d		; expiry
@@ -15,16 +15,17 @@ $ORIGIN	mah.
 ns1		IN	A	192.168.200.32
 ns2		IN	A	192.168.200.33
 
-catpuccin 	IN	A	192.168.200.1
-pve01		IN	CNAME	catpuccin
-everforest 	IN	A	192.168.200.2
-pve02		IN	CNAME	everforest	
-nord		IN	A	192.168.200.3
-pve03		IN	CNAME	nord	
-gruvbox		IN	A	192.168.200.4
-nas01		IN	CNAME	gruvbox	
+catpuccin 		IN	A		192.168.200.1
+pve01			IN	CNAME	catpuccin
+everforest 		IN	A		192.168.200.2
+pve02			IN	CNAME	everforest	
+nord			IN	A		192.168.200.3
+pve03			IN	CNAME	nord	
+gruvbox			IN	A		192.168.200.4
+nfs01			IN	CNAME	gruvbox	
 
 rpi-wireguard	IN	A	192.168.200.101
-immich		IN	A	192.168.200.102
-tailscale	IN	A	192.168.200.103
+immich			IN	A	192.168.200.102
+tailscale		IN	A	192.168.200.103
+karakeep			IN	A 	192.168.200.104
 

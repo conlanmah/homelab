@@ -23,28 +23,54 @@ container_defaults = {
 # interfaces: list of NICs. Each entry needs at minimum { ip = "x.x.x.x/24" }.
 # Optional per-interface overrides: name (default "eth{n}"), bridge (default default_bridge), gateway (default ipv4_gateway for eth0, null for others)
 nix_containers = {
+  ###################################
+  ######### Catpuccin ##############
+  ###################################
   # "immich" = {
   #   interfaces = [{ ip = "192.168.200.102/24" }]
   #   node_name  = "catpuccin"
   #   cpu_cores  = 4
   #   memory_mb  = 8096
   # }
-  "tailscale" = {
-    interfaces = [{ ip = "192.168.200.103/24" }]
-    cpu_cores  = 1
-    memory_mb  = 2048
-  }
-  "ns1" = {
-    interfaces = [{ ip = "192.168.200.32/24" }]
-    cpu_cores  = 1
-    memory_mb  = 2048
-  }
   "ns2" = {
     interfaces = [{ ip = "192.168.200.33/24" }]
     node_name  = "catpuccin"
     cpu_cores  = 1
     memory_mb  = 2048
   }
+
+  ###################################
+  ######### Everforest ##############
+  ###################################
+
+  "tailscale" = {
+    interfaces = [{ ip = "192.168.200.103/24" }]
+    node_name  = "everforest"
+    cpu_cores  = 1
+    memory_mb  = 2048
+  }
+  "ns1" = {
+    interfaces = [{ ip = "192.168.200.32/24" }]
+    node_name  = "everforest"
+    cpu_cores  = 1
+    memory_mb  = 2048
+  }
+  
+  "karakeep" = {
+    interfaces = [
+      { ip = "192.168.200.104/24" },
+      { ip = "192.168.150.104/24", bridge = "vmbr1"},
+    ]
+    node_name  = "everforest"
+    cpu_cores  = 1
+    memory_mb  = 2048
+  } 
+  ###################################
+  ######### Nord ####################
+  ###################################
+
+  # Back up host can go here
+  
   # Multi-interface example:
   # "dual-homed" = {
   #   node_name = "nord"
