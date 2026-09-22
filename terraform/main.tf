@@ -21,9 +21,35 @@ locals {
       cpu_cores        = coalesce(host.cpu_cores, var.container_defaults.cpu_cores)
       memory_mb        = coalesce(host.memory_mb, var.container_defaults.memory_mb)
       disk_size_gb     = coalesce(host.disk_size_gb, var.container_defaults.disk_size_gb)
-      tags             = host.tags
+      tags             = coalescelist(host.tags, var.container_defaults.tags)
     }
   }
+
+  #   vms = {
+  #     for name, host in var.nix_vms : name => {
+  #       hostname = name
+  #       interfaces = [
+  #         for i, iface in host.interfaces : {
+  #           name   = coalesce(iface.name, "eth${i}")
+  #           bridge = coalesce(iface.bridge, var.container_defaults.default_bridge)
+  #           ip     = iface.ip
+  #           # Only the primary interface (index 0) defaults to ipv4_gateway; secondary NICs get null unless explicit
+  #           gateway = i == 0 ? coalesce(iface.gateway, var.container_defaults.ipv4_gateway) : iface.gateway
+  #         }
+  #       ]
+  #       node_name        = coalesce(host.node_name, var.container_defaults.node_name)
+  #       datastore_id     = coalesce(host.datastore_id, var.container_defaults.datastore_id)
+  #       template_file_id = coalesce(host.template_file_id, var.container_defaults.template_file_id)
+  #       ssh_public_keys  = coalesce(host.ssh_public_keys, var.container_defaults.ssh_public_keys)
+  #       user_password    = coalesce(host.user_password, var.container_defaults.user_password)
+  #       cpu_cores        = coalesce(host.cpu_cores, var.container_defaults.cpu_cores)
+  #       memory_mb        = coalesce(host.memory_mb, var.container_defaults.memory_mb)
+  #       disk_size_gb     = coalesce(host.disk_size_gb, var.container_defaults.disk_size_gb)
+  #       tags             = host.tags
+  #     }
+  #   }
+
+
 }
 
 module "nix_container" {
@@ -48,7 +74,7 @@ module "nix_container" {
 
 # module "immich" {
 #   source   = "./modules/nix-ct"
-  
+
 #   hostname         = "immich-mars"
 #   interfaces       = [
 #     {
